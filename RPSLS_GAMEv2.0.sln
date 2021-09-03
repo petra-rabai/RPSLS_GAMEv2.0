@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31613.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPSLS_GAMEv2.0", "RPSLS_GAMEv2.0.csproj", "{B00E854C-BD36-4C53-A2C5-BFF05CAAFAE7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B00E854C-BD36-4C53-A2C5-BFF05CAAFAE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B00E854C-BD36-4C53-A2C5-BFF05CAAFAE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B00E854C-BD36-4C53-A2C5-BFF05CAAFAE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B00E854C-BD36-4C53-A2C5-BFF05CAAFAE7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {759C2076-B181-4034-8155-6439324160AD}
+	EndGlobalSection
+EndGlobal
