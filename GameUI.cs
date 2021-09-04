@@ -17,7 +17,50 @@ namespace RPSLS_GAME
                 + "If you need to read the game rules hit the H key\n"
                 + "Hit the E key to start the game or hit the Q key to quit the game\n"
                 + "If you want to go back to the main screen hit the B key\n");
+            WaitForUser();
         }
+
+        public static void WaitForUser()
+        {
+            Console.WriteLine("Wait for user input: ");
+            Console.Beep();
+        }
+
+        public static void Help()
+        {
+            Console.Clear();
+            Console.WriteLine("The Game rules: ");
+            Console.WriteLine("Scissors cuts Paper\n" + "Paper covers Rock\n" + "Rock crushes Lizard\n" + "Lizard poisons Spock\n"
+                + "Spock smashes Scissors\n" + "Scissors decapitates Lizard\n" + "Lizard eats Paper\n" + "Paper disproves Spock\n"
+                + "Spock vaporizes Rock\n" + "Rock crushes Scissors\n" + "\n" + "If you want to go back to the main screen hit the B key\n"
+                + "If you want to quit the game hit the Q key\n");
+            WaitForUser();
+        }
+
+        public static void GameStart()
+        {
+            Console.Clear();
+            Console.WriteLine("Choose an item: \n" + "Paper - P\n" + "Scissor - S\n"
+                + "Rock - R\n" + "Lizard - L\n" + "Spock -V\n");
+            WaitForUser();
+        }
+
+        public static void GameMenu()
+        {
+            Console.Clear();
+            Console.WriteLine("Please hit a valid key: \n" + "Valid keys are: \n" + "H - Help\n" + "E - Start the Game \n" +
+                "Q - Quit the Game\n" + "B - Back to the Main screen\n");
+            WaitForUser();
+        }
+
+        public static void GameIdentities()
+        {
+            Console.Clear();
+            Console.WriteLine("Please hit a valid key: \n" + "Valid keys are: \n" + "Paper - P\n" + "Scissor - S \n" +
+                "Rock - R\n" + "Lizard - L\n" + "Spock -V\n");
+            WaitForUser();
+        }
+
 
         public static void GameFinalize()
         {

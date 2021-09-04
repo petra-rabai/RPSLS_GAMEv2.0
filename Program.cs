@@ -13,14 +13,9 @@ namespace RPSLS_GAME
     {
         static void Main(string[] args)
         {
-            char x = userPressedKey;
-            Console.WriteLine(x);
-            Console.ReadKey();
-            //GameInitialize();
-            //GetData();
-            //CheckIdentities();
-            //StoreData();
-            //GameFinalize();
+            GameInitialize();
+            GetUserInput();
+            PressedKeyValidation();
         }
     }
 }
