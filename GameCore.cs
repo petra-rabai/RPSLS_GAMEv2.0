@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,7 +31,6 @@ namespace RPSLS_GAME
 
         public static char PressedKeyValidation()
         {
-            userPressedkey = GetUserInput();
             while ((userPressedkey != 'H') && (userPressedkey != 'Q') && (userPressedkey != 'B') && (userPressedkey != 'E'))
             {
                 GameMenu();
@@ -57,21 +57,30 @@ namespace RPSLS_GAME
 
             while ((userPressedkey != 'P') && (userPressedkey != 'S') && (userPressedkey != 'R') && (userPressedkey != 'L') && (userPressedkey != 'V'))
             {
-                GameIdentities();
+                GameStart();
                 userPressedkey = GetUserInput();
             }
+
             return userPressedkey;
         }
         public static void GameLogic()
         {
-            userPressedkey = GetUserInput();
             machinePressedkey = GetMachineInput();
-            userPressedkey = PressedKeyValidation();
             CheckIdentities();
-
+            DefineChoosedOption();
+            GameFinalize();
         }
         public static void CheckIdentities()
         {
+            if (userPressedkey == machinePressedkey)
+            {
+                IdentitiesEqual();
+                userPressedkey = GetUserInput();
+                userPressedkey = PressedKeyValidation();
+                machinePressedkey = GetMachineInput();
+
+            }
+
             if ((userPressedkey == 'S' && machinePressedkey == 'P') || (userPressedkey == 'L' && machinePressedkey == 'P')
                 || (userPressedkey == 'P' && machinePressedkey == 'R') || (userPressedkey == 'V' && machinePressedkey == 'R')
                 || (userPressedkey == 'R' && machinePressedkey == 'L') || (userPressedkey == 'S' && machinePressedkey == 'L')
@@ -86,10 +95,62 @@ namespace RPSLS_GAME
             }
         }
 
-        public static string DefineChoosedOption(userChoosedOption,machineChoosedOption)
+        public static void DefineChoosedOption()
         {
+            switch (machinePressedkey)
+            {
+                case 'P':
+                    machineChoosedOption = "Paper";
+                    break;
+                case 'S':
+                    machineChoosedOption = "Scissor";
+                    break;
+                case 'R':
+                    machineChoosedOption = "Rock";
+                    break;
+                case 'L':
+                    machineChoosedOption = "Lizard";
+                    break;
+                case 'V':
+                    machineChoosedOption = "Spock";
+                    break;
+                default:
+                    break;
+            }
 
-            return userChoosedOption, machineChoosedOption;
+            switch (userPressedkey)
+            {
+                case 'P':
+                    userChoosedOption = "Paper";
+                    break;
+                case 'S':
+                    userChoosedOption = "Scissor";
+                    break;
+                case 'R':
+                    userChoosedOption = "Rock";
+                    break;
+                case 'L':
+                    userChoosedOption = "Lizard";
+                    break;
+                case 'V':
+                    userChoosedOption = "Spock";
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+        public static void SaveTheResult()
+        {
+            Console.WriteLine("Add your name: ");
+            userName = Console.ReadLine();
+            string timestamp = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
+            string savedresult;
+            string Gameresult = "\n" + "Username: " + userName + " \n" + "Choosed option by the User: " + userChoosedOption + "\n"
+                + "Choosed option by the Machine: " + machineChoosedOption + "\n";
+            savedresult = "\n" + timestamp + Gameresult;
+            File.AppendAllText("GameResult.txt", savedresult);
         }
 
     }

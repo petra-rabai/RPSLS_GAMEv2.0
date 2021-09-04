@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static RPSLS_GAME.GameData;
 
 namespace RPSLS_GAME
 {
@@ -53,18 +54,30 @@ namespace RPSLS_GAME
             WaitForUser();
         }
 
-        public static void GameIdentities()
+        public static void IdentitiesEqual()
         {
             Console.Clear();
-            Console.WriteLine("Please hit a valid key: \n" + "Valid keys are: \n" + "Paper - P\n" + "Scissor - S \n" +
-                "Rock - R\n" + "Lizard - L\n" + "Spock -V\n");
+            Console.WriteLine("Both identities are equal\n Please choose again: ");
             WaitForUser();
         }
 
-
         public static void GameFinalize()
         {
+            Console.Clear();
+            if (userPoint > machinePoint)
+            {
+                Console.WriteLine("You are WIN! :)\n" + "You are choosed the: " + userChoosedOption + "\n"
+                    + "The machine choosed the: " + machineChoosedOption);
+            }
+            else
+            {
+                Console.WriteLine("You are LOSE! :(\n" + "You are choosed the: " + userChoosedOption + "\n"
+                    + "The machine choosed the: " + machineChoosedOption);
+            }
 
+            Console.WriteLine("\n" + "If you want a new game hit the E key \n" + "If you want to quit hit the Q key\n");
+            WaitForUser();
         }
+
     }
 }

@@ -16,6 +16,9 @@ namespace RPSLS_GAME
             GameInitialize();
             GetUserInput();
             PressedKeyValidation();
+            GameLogic();
+            SaveTheResult();
+
         }
     }
 }
