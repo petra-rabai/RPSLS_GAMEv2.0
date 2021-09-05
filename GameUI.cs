@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static RPSLS_GAME.GameData;
 
 namespace RPSLS_GAME
 {
-    
+
     public class GameUI
     {
         public static void GameInitialize()
@@ -61,7 +57,7 @@ namespace RPSLS_GAME
             WaitForUser();
         }
 
-        public static void GameFinalize()
+        public static void GameResult()
         {
             Console.Clear();
             if (userPoint > machinePoint)
@@ -74,7 +70,11 @@ namespace RPSLS_GAME
                 Console.WriteLine("You are LOSE! :(\n" + "You are choosed the: " + userChoosedOption + "\n"
                     + "The machine choosed the: " + machineChoosedOption);
             }
+        }
 
+        public static void FinishOrRestart()
+        {
+            Console.Clear();
             Console.WriteLine("\n" + "If you want a new game hit the E key \n" + "If you want to quit hit the Q key\n");
             WaitForUser();
         }

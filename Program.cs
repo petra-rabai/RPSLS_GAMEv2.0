@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using static RPSLS_GAME.GameCore;
 using static RPSLS_GAME.GameUI;
-using static RPSLS_GAME.GameData;
-using static RPSLS_GAME.GameCore;
 
 namespace RPSLS_GAME
 {
@@ -18,7 +12,7 @@ namespace RPSLS_GAME
             PressedKeyValidation();
             GameLogic();
             SaveTheResult();
-
+            GameFinalize();
         }
     }
 }

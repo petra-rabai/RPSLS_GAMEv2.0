@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static RPSLS_GAME.GameData;
 using static RPSLS_GAME.GameUI;
 
 namespace RPSLS_GAME
 {
-   public class GameCore
+    public class GameCore
     {
 
         public static char GetUserInput()
@@ -55,6 +51,11 @@ namespace RPSLS_GAME
                     break;
             }
 
+            return userPressedkey;
+        }
+
+        public static char CheckChoosedUserIdentity()
+        {
             while ((userPressedkey != 'P') && (userPressedkey != 'S') && (userPressedkey != 'R') && (userPressedkey != 'L') && (userPressedkey != 'V'))
             {
                 GameStart();
@@ -63,20 +64,23 @@ namespace RPSLS_GAME
 
             return userPressedkey;
         }
+
         public static void GameLogic()
         {
+            userPressedkey = GetUserInput();
             machinePressedkey = GetMachineInput();
             CheckIdentities();
             DefineChoosedOption();
-            GameFinalize();
+            GameResult();
         }
         public static void CheckIdentities()
         {
+            userPressedkey = CheckChoosedUserIdentity();
             if (userPressedkey == machinePressedkey)
             {
                 IdentitiesEqual();
                 userPressedkey = GetUserInput();
-                userPressedkey = PressedKeyValidation();
+                userPressedkey = CheckChoosedUserIdentity();
                 machinePressedkey = GetMachineInput();
 
             }
@@ -151,6 +155,13 @@ namespace RPSLS_GAME
                 + "Choosed option by the Machine: " + machineChoosedOption + "\n";
             savedresult = "\n" + timestamp + Gameresult;
             File.AppendAllText("GameResult.txt", savedresult);
+        }
+
+        public static void GameFinalize()
+        {
+            FinishOrRestart();
+            userPressedkey = GetUserInput();
+            userPressedkey = PressedKeyValidation();
         }
 
     }
